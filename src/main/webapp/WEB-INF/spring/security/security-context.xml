@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:b="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security.xsd"
+	>
+
+
+<http auto-config="true">
+	   <form-login
+         login-page="/login.jsp"
+         default-target-url="/index.html"
+         authentication-failure-url="/login.jsp?error=true"
+         login-processing-url="/j_security_check"
+         always-use-default-target="true" />
+
+	  
+	  <intercept-url pattern="/login*" access="permitAll" />
+	  <intercept-url pattern="/assets*" access="permitAll" />
+	  <intercept-url pattern="/assets/js/**" access="permitAll" />
+	  <intercept-url pattern="/assets/css/**" access="permitAll" />
+	  <intercept-url pattern="/assets/js/bootstrap/**" access="permitAll" />
+	  <intercept-url pattern="/services/**" access="permitAll" />
+ 	  <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+
+</http>
+
+ 
+
+<authentication-manager>
+  <authentication-provider ref="incAuthenticationProvider" />
+</authentication-manager>
+
+<b:bean id="incAuthenticationProvider" class="es.indra.inc.security.IncAuthenticationProvider" > 
+</b:bean>
+
+</b:beans>
