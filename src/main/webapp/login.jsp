@@ -28,9 +28,15 @@
 
             </div>
             <h3>Bienvenido a INC</h3>
-            <p>Centro de Administración de Itecban.
+            <p>Centro de Notificaciones de Itecban.
             </p>
             <p>Inserte su código de empleado y contraseña.</p>
+            <core:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION}">
+     			 <font color="red">
+     			   Se ha producido el siguiente error <br/><br/>
+       				 <core:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/>.
+      			</font>
+			</core:if> 
             <form class="m-t" role="form" action="/inc/j_security_check" method="POST">
             	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <div class="form-group">

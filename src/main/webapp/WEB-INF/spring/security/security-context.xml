@@ -34,6 +34,7 @@
 </authentication-manager>
 
 <b:bean id="incAuthenticationProvider" class="es.indra.inc.security.IncAuthenticationProvider" > 
+<b:property name="loginService"> <b:ref bean="loginService" /></b:property>
 </b:bean>
 
 </b:beans>

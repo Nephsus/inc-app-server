@@ -1,12 +1,20 @@
 package es.indra.inc;
 
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import es.indra.inc.model.Employee;
 import es.indra.inc.model.LineChartData;
 import es.indra.inc.model.StatisticsServiceOutputType;
 import es.indra.inc.model.StatisticsServiceResponseType;
@@ -17,9 +25,14 @@ import es.indra.inc.model.StatisticsServiceResponseType;
 @RequestMapping("/services/statistics")
 public class StatisticsController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(StatisticsController.class);
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/getStadisticsResponse")
-	public StatisticsServiceResponseType getStadisticsResponse(){
+	public StatisticsServiceResponseType getStadisticsResponse(Authentication authentication){
+		
+		
+
+		
 		StatisticsServiceResponseType response = new StatisticsServiceResponseType();
 		StatisticsServiceOutputType responseOut = new StatisticsServiceOutputType();
 		LineChartData lineChartData = new LineChartData();

@@ -5,9 +5,9 @@
 
 
 
-<bean id="loginService" class="es.indra.inc.services.LoginService">
+<bean id="loginService" class="es.indra.inc.services.LoginServiceImpl">
 <property name="itecbanConnector" >
-		<ref bean="itecbanConnector"></ref></property>
+		<ref bean="itecbanConnectorTuxedo"></ref></property>
 </bean>
 
 </beans>

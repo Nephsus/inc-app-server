@@ -7,10 +7,10 @@
 
 
 
- <bean id="itecbanConnector"
+ <bean id="itecbanConnectorTuxedo"
       	  class="org.springframework.ejb.access.SimpleRemoteStatelessSessionProxyFactoryBean">
 			  <property name="jndiName" value="ejb:EarItecbanConnector/ItecbanConnectors//ItecbanConnectorBean!es.indra.itecban.interfaces.ItecbanConnectorRemote"/>
-			  <property name="businessInterface" value="es.com.indra.pbe.aq.service.data.eis.connector.impl.ItecbanConnector"/>
+			  <property name="businessInterface" value="es.indra.itecban.interfaces.ItecbanConnectorRemote"/>
 			  <property name="lookupHomeOnStartup"><value>false</value></property>
 			  <property name="refreshHomeOnConnectFailure"><value>true</value></property>
 			  <property name="cacheHome"><value>false</value></property>
