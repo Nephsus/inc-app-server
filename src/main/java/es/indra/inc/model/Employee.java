@@ -1,11 +1,26 @@
 package es.indra.inc.model;
 
-public class Employee {
+public class Employee  {
 	
+	private String code;
+	private String password;
 	private String name;
 	private String rol;
 	private String terminal;
 	private String oficina;
+	
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 	public String getName() {
 		return name;

@@ -34,7 +34,16 @@
 </authentication-manager>
 
 <b:bean id="incAuthenticationProvider" class="es.indra.inc.security.IncAuthenticationProvider" > 
-<b:property name="loginService"> <b:ref bean="loginService" /></b:property>
+<b:property name="businessOperationRouter"> <b:ref bean="businessOperationRouter" /></b:property>
+</b:bean>
+
+
+<b:bean id="businessOperationRouter" class="es.indra.inc.services.BusinessOperationRouter">
+  		<b:property name="services">
+			<b:map>
+				<b:entry key="login" value-ref="loginService" />
+			</b:map>
+		</b:property>
 </b:bean>
 
 </b:beans>

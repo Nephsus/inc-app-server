@@ -7,35 +7,36 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-
-import es.indra.inc.services.LoginService;
+import es.indra.inc.model.LoginInputType;
+import es.indra.inc.model.RemotingOperationBean;
+import es.indra.inc.services.BusinessOperationRouter;
 
 public class IncAuthenticationProvider implements AuthenticationProvider {
 	
-	private LoginService loginService;
+	private BusinessOperationRouter businessOperationRouter;
 
-	public LoginService getLoginService() {
-		return loginService;
-	}
-
-	public void setLoginService(LoginService loginService) {
-		this.loginService = loginService;
-	}
+	
 
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		String name = authentication.getName();
         String password = authentication.getCredentials().toString();
         
-        
-       ;
+        LoginInputType loginInputType = new LoginInputType();
+        loginInputType.setUsername(name);
+        loginInputType.setPassword(password);
         
        //if( "a".equals(name) && "a".equals(password) ){
 	        ArrayList<SimpleGrantedAuthority> au  = new ArrayList<SimpleGrantedAuthority>();
 	        SimpleGrantedAuthority sg = new SimpleGrantedAuthority("ROLE_USER");
 	        au.add(sg);
 	        
-	        return new UsernamePasswordAuthenticationToken(loginService.doAuthentication(name, password), password, au);
+	       
+	        
+	        RemotingOperationBean remotingOperationBean = new RemotingOperationBean();
+	        
+	        remotingOperationBean.setInputObject(loginInputType);
+	        return new UsernamePasswordAuthenticationToken(businessOperationRouter.performRemoteOperation(remotingOperationBean), password, au);
 	        
 	        
         //}
@@ -47,6 +48,14 @@ public class IncAuthenticationProvider implements AuthenticationProvider {
 	public boolean supports(Class<?> arg0) {
 		
 		return true;
+	}
+
+	public BusinessOperationRouter getBusinessOperationRouter() {
+		return businessOperationRouter;
+	}
+
+	public void setBusinessOperationRouter(BusinessOperationRouter businessOperationRouter) {
+		this.businessOperationRouter = businessOperationRouter;
 	}
 
 }

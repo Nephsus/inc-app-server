@@ -6,8 +6,16 @@
 
 
 <bean id="loginService" class="es.indra.inc.services.LoginServiceImpl">
-<property name="itecbanConnector" >
-		<ref bean="itecbanConnectorTuxedo"></ref></property>
+	<property name="provider" > <ref bean="provider"></ref></property> 
+	<property name="serializator" > <ref bean="serializator"></ref></property> 
+</bean>
+
+
+<bean id="serializator" class="es.indra.inc.services.TuxedoLoginSerializator">	
+</bean>
+
+<bean id="provider" class="es.indra.inc.provider.ItecbanTuxedoProvider">
+	<property name="itecbanConnector" > <ref bean="itecbanConnectorTuxedo"></ref></property> 
 </bean>
 
 </beans>

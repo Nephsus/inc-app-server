@@ -28,11 +28,8 @@ public class StatisticsController {
 	private static final Logger logger = LoggerFactory.getLogger(StatisticsController.class);
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/getStadisticsResponse")
-	public StatisticsServiceResponseType getStadisticsResponse(Authentication authentication){
-		
-		
+	public StatisticsServiceResponseType getStadisticsResponse(){
 
-		
 		StatisticsServiceResponseType response = new StatisticsServiceResponseType();
 		StatisticsServiceOutputType responseOut = new StatisticsServiceOutputType();
 		LineChartData lineChartData = new LineChartData();

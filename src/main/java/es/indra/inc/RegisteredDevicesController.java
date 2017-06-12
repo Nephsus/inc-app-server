@@ -12,7 +12,7 @@ import es.indra.inc.model.RegisteredDevicesOutputType;
 import es.indra.inc.model.User;
 
 @RestController
-@RequestMapping("/services/registereddevides")
+@RequestMapping("/services/registereddevices")
 public class RegisteredDevicesController {
 	
 	

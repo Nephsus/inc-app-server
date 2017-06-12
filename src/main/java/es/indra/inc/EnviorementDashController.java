@@ -16,7 +16,7 @@ import es.indra.inc.model.StatisticsServiceResponseType;
 @RequestMapping("/services/enviorementdash")
 public class EnviorementDashController {
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/getEmployeeResponde")
+	@RequestMapping(method = RequestMethod.GET, value = "/getEmployeeResponse")
 	public Employee getEmployee(Authentication authentication){
 		 return (Employee) authentication.getPrincipal();
 	}
