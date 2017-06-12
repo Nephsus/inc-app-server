@@ -36,6 +36,7 @@ public class IncAuthenticationProvider implements AuthenticationProvider {
 	        RemotingOperationBean remotingOperationBean = new RemotingOperationBean();
 	        
 	        remotingOperationBean.setInputObject(loginInputType);
+	        remotingOperationBean.setOperation("login" );
 	        return new UsernamePasswordAuthenticationToken(businessOperationRouter.performRemoteOperation(remotingOperationBean), password, au);
 	        
 	        

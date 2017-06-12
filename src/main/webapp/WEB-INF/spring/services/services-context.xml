@@ -8,14 +8,17 @@
 <bean id="loginService" class="es.indra.inc.services.LoginServiceImpl">
 	<property name="provider" > <ref bean="provider"></ref></property> 
 	<property name="serializator" > <ref bean="serializator"></ref></property> 
+	<property name="serviceName" value="GHAPERPT"></property>
+	<property name="idService" value="login" ></property>
 </bean>
 
 
-<bean id="serializator" class="es.indra.inc.services.TuxedoLoginSerializator">	
+<bean id="serializator" class="es.indra.inc.serializator.TuxedoLoginSerializator">	
 </bean>
 
 <bean id="provider" class="es.indra.inc.provider.ItecbanTuxedoProvider">
 	<property name="itecbanConnector" > <ref bean="itecbanConnectorTuxedo"></ref></property> 
+	<property name="channel" value="X"></property>
 </bean>
 
 </beans>

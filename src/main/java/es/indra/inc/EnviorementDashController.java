@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import es.indra.inc.model.Employee;
+import es.indra.inc.model.LoginOutPutType;
 import es.indra.inc.model.StatisticsServiceResponseType;
 
 
@@ -18,7 +19,7 @@ public class EnviorementDashController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/getEmployeeResponse")
 	public Employee getEmployee(Authentication authentication){
-		 return (Employee) authentication.getPrincipal();
+		 return ((LoginOutPutType) authentication.getPrincipal()).getEmployee();
 	}
 
 }

@@ -11,6 +11,7 @@ public class ItecbanTuxedoProvider implements ItecbanProvider {
 	
 	
 	private ItecbanConnectorRemote itecbanConnector;
+	private String channel;
 	
 	private static final Logger logger = LoggerFactory.getLogger(ItecbanTuxedoProvider.class);
 
@@ -25,11 +26,19 @@ public class ItecbanTuxedoProvider implements ItecbanProvider {
 	@Override
 	public String performInvoke(Object[] inputObject) throws ConnectorException {
 		// TODO Auto-generated method stub
-		logger.debug("Voy a llamar" +  (String)inputObject[3]);
-		String response = itecbanConnector.send((String)inputObject[0], (String)inputObject[1], (String)inputObject[2], (String)inputObject[3]);
+		logger.debug("Voy a llamar");
+		String response = itecbanConnector.send((String)inputObject[0], (String)inputObject[1], getChannel(), (String)inputObject[2]);
 		logger.debug("Respuesta tuxedo:" + response);
 	
 		return response;
+	}
+
+	public String getChannel() {
+		return channel;
+	}
+
+	public void setChannel(String channel) {
+		this.channel = channel;
 	}
 	
 	
