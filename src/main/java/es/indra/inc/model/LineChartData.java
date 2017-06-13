@@ -17,7 +17,7 @@ package es.indra.inc.model;
 	"data",
 	"label"
 	})
-	public class LineChartData {
+	public class LineChartData  {
 
 	@JsonProperty("data")
 	private List<Integer> data = null;

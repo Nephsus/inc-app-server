@@ -2,7 +2,7 @@ package es.indra.inc.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class StatisticsServiceResponseType {
+public class StatisticsServiceResponseType extends HeaderData {
 	
 	
 	@JsonProperty("statisticsServiceOutputType")
